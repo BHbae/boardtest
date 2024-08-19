@@ -24,7 +24,8 @@
 							<td>
 								<div class="d-flex">
 
-									<form action="/todo/delete?id=${list.id}" method="post">
+									<form action="/todo/delete" method="GET">
+										<input type="hidden" id="id" name="id" value="${list.id}">
 										<button class="btn btn-danger">삭제</button>
 									</form>
 

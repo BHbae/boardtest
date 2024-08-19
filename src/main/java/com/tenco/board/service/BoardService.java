@@ -18,7 +18,6 @@ public class BoardService {
 	@Autowired
 	private final boardRepository repository;
 
-	@Transactional
 	public List<Todo> readList(int page, int size) {
 		List<Todo> list = null;
 		int limit =size;
@@ -44,7 +43,6 @@ public class BoardService {
 		return result;
 	}
 
-	@Transactional
 	public Todo readById(Integer id) {
 		Todo todo = null;
 
@@ -52,6 +50,7 @@ public class BoardService {
 		return todo;
 	}
 
+	@Transactional
 	public int updateByIdAndPaw(Integer id, String title, String content, Integer password) {
 		int result = 0;
 
