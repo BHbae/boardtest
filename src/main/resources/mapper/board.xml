@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tenco.board.repository.Interface.boardRepository">
+
+
+	<select id="todoList"  resultType="com.tenco.board.repository.model.Todo">
+		select * from todolist_tb limit #{limit} offset #{offset}
+	</select>
+	
+	<select id="selectById"  resultType="com.tenco.board.repository.model.Todo">
+		select * from todolist_tb WHERE id = #{id}
+	</select>
+	
+	<select id="countBoard" >
+		select count(*) from todolist_tb
+	</select>
+	
+	<insert id="createTodo">
+		INSERT INTO todolist_tb(title, content, username, password) 
+		VALUES ( #{title}, #{content} ,#{username}, #{password} )
+	</insert>
+	
+	<delete id="deleteTodo">
+		delete from todolist_tb WHERE id = #{id}
+	</delete>
+	
+	<update id="updateTodo">
+		UPDATE todolist_tb SET title = #{title}, content = #{content} WHERE id = #{id} AND password = #{password}
+	</update>
+	
+	
+</mapper>

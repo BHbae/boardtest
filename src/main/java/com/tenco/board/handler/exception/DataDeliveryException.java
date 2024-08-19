@@ -1,0 +1,18 @@
+package com.tenco.board.handler.exception;
+
+import org.springframework.http.HttpStatus;
+
+import lombok.Getter;
+
+// 데이터 처리시 오류 예외 처리 
+@Getter
+public class DataDeliveryException extends RuntimeException {
+	
+	private HttpStatus status;
+	
+	public DataDeliveryException(String message, HttpStatus status) {
+		super(message);
+		this.status = status;
+	}
+
+}
